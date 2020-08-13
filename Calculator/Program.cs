@@ -9,7 +9,8 @@ namespace Calculator
             int firstNum;
             int secondNum;
             string equationType;
-            int calculationAnswer;
+            int calculationAnswer = 0;
+            
 
             Console.WriteLine("Input first digit");
             firstNum = Convert.ToInt32(Console.ReadLine());
@@ -17,36 +18,32 @@ namespace Calculator
             Console.WriteLine("Input second digit");
             secondNum = Convert.ToInt32(Console.ReadLine());
 
-            //Console.WriteLine("Input type of equation +, -, x, / ");
+            Console.WriteLine("Input type of equation +, -, x, / ");
+            equationType = Console.ReadLine();
 
+            if (equationType == "+")
+            {
+                calculationAnswer = Calculation.Addition(firstNum, secondNum);
+            }
 
+            if (equationType == "-")
+            {
+                calculationAnswer = Calculation.Subtraction(firstNum, secondNum);
+            }
+
+            if (equationType == "x")
+            {
+                calculationAnswer = Calculation.Multiplication(firstNum, secondNum);
+            }
+
+            if (equationType == "/")
+            {
+                calculationAnswer = Calculation.Division(firstNum, secondNum);
+            }
             
+            Console.WriteLine($"{firstNum} {equationType} {secondNum} = {calculationAnswer}");
 
-            //else if (equationType == "-")
-            //{
-            //    calculationAnswer = firstNum - secondNum;
-            //    Console.WriteLine(firstNum + "-" + secondNum + "=" + calculationAnswer);
-            //    Console.ReadLine();
-            //}
-            //else if (equationType == "x")
-            //{
-            //    calculationAnswer = firstNum * secondNum;
-            //    Console.WriteLine(firstNum + "x" + secondNum + "=" + calculationAnswer);
-            //    Console.ReadLine();
-            //}
-            //else if (equationType == "/")
-            //{
-            //    calculationAnswer = firstNum / secondNum;
-            //    Console.WriteLine(firstNum + "/" + secondNum + "=" + calculationAnswer);
-            //    Console.ReadLine();
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Incorrect format, please try again");
-            //    Console.ReadLine();
-                
-            //}
-
+            Console.Read();
         }
     }
 }
